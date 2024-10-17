@@ -40,7 +40,7 @@ RUN rushx build:isolate
 FROM node:20-alpine AS runner
 
 # Set working directory
-WORKDIR/app
+WORKDIR /app
 
 # Copy the packaged files from the builder stage to the runner
 COPY --from=builder /app/community-voting-system-monorepo/apps/api-server/isolate ./api-server
