@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  api-server:
+    image: api-server:latest
+    working_dir: /app
+    environment:
+      - PORT=8080
+      - MONGO_RESOURCE=mongo:27017
+      - MONGO_USERNAME=karl
+      - MONGO_PASSWORD=Aa3345678
+    networks:
+      - app-network
+    restart: always
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ../db:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=karl
+      - MONGO_INITDB_ROOT_PASSWORD=Aa3345678
+    networks:
+      - app-network
+    restart: always
+
+  client-web:
+    image: client-web:latest
+    networks:
+      - app-network
+    restart: always
+
+  admin-web:
+    image: admin-web:latest
+    networks:
+      - app-network
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - client-web
+      - admin-web
+      - api-server
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: overlay
