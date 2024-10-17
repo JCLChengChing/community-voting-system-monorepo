@@ -2,7 +2,7 @@
 FROM node:20 AS builder
 
 # Set working directory
-WORKDIR/app
+WORKDIR /app
 
 # git clone project
 RUN git clone https://github.com/JCLChengChing/community-voting-system-monorepo
