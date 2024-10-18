@@ -25,6 +25,8 @@ newgrp docker
 Navigate to each application directory and build the Docker images:
 
 ```bash
+git clone https://github.com/JCLChengChing/community-voting-system-monorepo.git
+
 cd ~/community-voting-system-monorepo/apps/client-web && docker build -f ./Dockerfile -t client-web . --no-cache
 cd ~/community-voting-system-monorepo/apps/admin-web && docker build -f ./Dockerfile -t admin-web . --no-cache
 cd ~/community-voting-system-monorepo/apps/api-server && docker build -f ./Dockerfile -t api-server . --no-cache
