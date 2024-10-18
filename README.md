@@ -193,4 +193,6 @@ To access the client page:
    (Note: Replace `<EXTERNAL_IP>` with the actual external IP address)
 3. As with the admin page, if you encounter an HTTPS warning, remove the 's' from 'https' in the URL.
 
-Remember to secure your deployment by following GCP and Docker security best practices, especially if you plan to expose these pages to the public internet.
+
+During the meeting, each user is able to scan the QRcode to access the client page on their smartphone, this allows a more convenient and intuitive approach. 
+
